@@ -42,4 +42,28 @@ p nums.any? { |d| d % 8 == 0 }
 p nums.count { |x| x > 4 } 
 
 # 8. Use .each_with_index to print each item times its index
-p nums.each_with_index { |v, idx| p v*idx }
+p nums.each_with_index { |v, idx| p v * idx } 
+
+# 9. .find the number that is divisible by 7 and 5 and is greater than 0 
+p nums.find { |v| v % 7 == 0 and v % 5 == 0 and v > 0 } # prints 35
+
+# 10. .find_index of the number that is divisible by 5 and 7 and is greater than 0
+p nums.find_index { |v| v % 7 == 0 and v % 5 == 0 and v > 0 } # prints index of 14 
+
+# 11. Return the .first 3 numbers
+p nums.first(3)
+
+# 12. Return the .last 5 numbers 
+p nums.last(5) # prints [2, 3, 4, 12, 15] 
+
+# 13. .group_by the modulo of 3 ( % 3 )
+p nums.group_by { |v| v % 3 } # returns a hash
+
+# 14. Use minmax to return the smallest and largest number
+p nums.minmax # prints 0 and 100 
+
+# 15. Use .reject to return all the numbers that are NOT divisible by 3
+p nums.reject { |v| v % 3 != 0}
+
+# 16. Use .select to return all the numbers divisible by 5
+p nums.select { |z| z % 5 == 0}
