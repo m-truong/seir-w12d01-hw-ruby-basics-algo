@@ -15,6 +15,7 @@ hello = "Hello World"
 #### Nums Array and Enumerables Homework Section ####
 
 nums = [5, 5, 6, 7, 2, 4, 3, 2, 1, 9, 7, 6, 0, 0, 35, 19, 66, 3, 22, 21, 4, 4, 4, 0, 1, 2, 3, 4, 12, 15]
+p nums
 
 # 1. Use .uniq to print the array with all duplicate entries removed
 # p nums.uniq
@@ -27,3 +28,18 @@ p nums.unshift(100) # adds to beginning of nums-arr
 
 # 3. Use .include? to check if the array contains the number 8
 p nums.include? 8 # 'Predicate' method returns a boolean 
+
+# 4. Use .find_all to find all the numbers greater than 10
+p nums.find_all { |currNum| currNum > 10 } 
+
+# 5. Use .all? to check if all the numbers are greater than 0?
+p nums.all? { |val| val > 0} # prints false cause there are two values inside nums-arr = 0
+
+# 6. Use any? to check if there are any numbers that are divisible by 8
+p nums.any? { |d| d % 8 == 0 } 
+
+# 7. Use .count to let you know how many numbers are greater than 4
+p nums.count { |x| x > 4 } 
+
+# 8. Use .each_with_index to print each item times its index
+p nums.each_with_index { |v, idx| p v*idx }
