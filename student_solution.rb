@@ -166,18 +166,20 @@ get_primes(100)
 
 ######## Two Sum ###########
 # 1. Given an array of integers, return indices of two elements in the array such that their values add up to a specific target. You may assume that each input would have exactly one solution.
-numz = [2, 7, 11, 15]
+numz = [11, 15, 2, 7]
 number = 9
 def two_sums_algo_challenge (nums_arr, target)  
     callback = Proc.new do |n|
-        temp = target - n
-        if nums_arr.any?(temp)
-            return p [nums_arr.find_index(n), nums_arr.find_index(temp)]
-        else 
-            p "No two indices sum to #{target}"
+        # subtracts n from target to find 'difference' 
+        diff = target - n
+        # if it finds the 'difference' value inside array ... 
+        if nums_arr.any?(diff)
+            # ... then it returns new array with indices cause the existence of the difference means those two numbers sum to the target (i.e. n + diff  = target )
+            return p [nums_arr.find_index(n), nums_arr.find_index(diff)]
         end 
     end
     nums_arr.each { |n| callback.call(n) }
+    return p "No two indices sum to #{target}"
 end
 
 two_sums_algo_challenge(numz, number) # prints [0, 1]
