@@ -79,3 +79,52 @@ p colors.reverse
 
 # 3. Print out all of the colors in the array with all capital letters.
 p colors.each { |v| p v.upcase}
+
+
+######## Ruby Methods Section ########
+# 1. Write a method named find_area that finds the area of a rectangle when given values for width and height...
+def find_area (height, width)
+    height*width
+end
+p find_area(4, 5)
+# 2. Write a method named multiply_each_by_five that will loop over the given nums array below and print each number multiplied by 5
+numz_arr = [5, 5, 6, 7, 2, 4, 3, 2, 1, 9, 7, 6, 0, 0]
+def multiply_each_by_five arr  
+    arr.each { |v| p v * 5 }
+end
+multiply_each_by_five(numz_arr)
+
+######## Ruby Methods w A Hash ########
+book = {
+    title: 'The Great Gatsby',
+    author: 'F Scott Fitzgerald',
+    year: 1925,
+    price: 10
+}
+lamp = {
+    type: 'reading',
+    brand: 'Ikea',
+    price: 25
+}
+table = {
+    type: 'bed side',
+    brand: 'Crate & Barrel',
+    color: 'birch',
+    price: 50
+}
+
+# 1. Write a method named print_price that will take in any hash and return the price of the item.
+def print_price(currHash)
+    if currHash.has_key?(:price)
+        p currHash[:price] 
+    else 
+        p "No price"
+    end 
+end
+print_price(lamp)
+
+# 2. Write a method named print_item_sums that will take in two hashes and will return the sum of the prices for the items in the hashes.
+def print_item_sums hash1, hash2
+    p hash1[:price] + hash2[:price]
+end 
+print_item_sums(book, lamp)
