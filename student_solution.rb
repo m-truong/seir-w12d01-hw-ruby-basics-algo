@@ -128,3 +128,38 @@ def print_item_sums hash1, hash2
     p hash1[:price] + hash2[:price]
 end 
 print_item_sums(book, lamp)
+
+######## Euler Problem 1 ########
+# 1. Find the sum of all the multiples of 3 or 5 below 1000.
+p (0...1000).select { |n| n % 3 == 0 || n % 5 ==0 }.inject(0) { | s, n | s += n }
+
+######## Primes  ########
+# 1. Write a method called check_prime? that will test whether a number is Prime. The method will return true if Prime, false if not.
+=begin 
+require 'prime'
+p Prime.prime?(8753) # prints true
+p Prime.prime?(4) # prints false
+=end 
+def check_prime?(num)
+    # Note: Skip 0 and 1
+    (2..(num - 1)).each do |n|
+        return false if num % n == 0
+    end
+    true
+end
+p check_prime?(8753) # prints true
+p check_prime?(4) # prints false
+
+# 2. Write another method called get_primes that will print all the Primes up to an arbitrary limit. For example, if you invoke your method with get_primes 100, it will print all the Prime numbers up to and including 100.
+def get_primes(limit)
+    # Note: ternary-operatory wouldn't work for me
+    (2..limit).each do |n| 
+        if check_prime?(n)
+            p "#{n} is a Prime number! ✅" 
+        else 
+            p "#{n} is NOT a Prime number ❌" 
+        end 
+    end
+end 
+
+get_primes(100)
